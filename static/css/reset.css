@@ -1,0 +1,68 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family:HiraginoSansGB-W3;
+}
+a{
+  text-decoration: none;
+  color: #999;
+}
+a:hover {
+  /*color: #f10215;*/
+}
+
+input {
+  border: 0 none;
+}
+h1,
+h2,
+h3,
+h4{
+  font-weight: normal;
+}
+i,
+em{
+  font-weight: normal;
+}
+li{
+  list-style: none;
+}
+body{
+  font: 12px/100% "微软雅黑";
+}
+image{
+  border: none;
+}
+
+.clearfix:after {
+  content: "";
+  clear:both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+  height: 0;
+
+}
+.clearfix{
+  *zoom:1
+}
+.w{
+  width:1200px;
+  margin: 0 auto;
+}
+.ta{
+  text-align: center;
+}
+.fl {
+  float: left;
+}
+.jd-color{
+  color: #f10215;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
