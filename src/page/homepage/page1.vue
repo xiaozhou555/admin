@@ -1,12 +1,43 @@
 <template>
-  <div id="app">
-    <schart :canvasId="canvasId"
-            :type="type"
-            :width="width"
-            :height="height"
-            :data="data"
-            :options="options"
-    ></schart>
+  <div id="page">
+    <div class="biao">
+      <div class="biao1">
+        <schart :canvasId="canvasId"
+                :type="type"
+                :width="width"
+                :height="height"
+                :data="data"
+                :options="options"
+        ></schart>
+      </div>
+      <div class="biao1">
+        <schart canvasId="canvasId2"
+                type="pie"
+                :width="width"
+                :height="height"
+                :data="data"
+                :options="options"
+        ></schart>
+      </div>
+      <div class="biao1">
+        <schart canvasId="canvasId3"
+                type="bar"
+                :width="width"
+                :height="height"
+                :data="data"
+                :options="options"
+        ></schart>
+      </div>
+      <div class="biao1">
+        <schart canvasId="canvasId4"
+                type="ring"
+                :width="width"
+                :height="height"
+                :data="data"
+                :options="options"
+        ></schart>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -40,3 +71,17 @@
     }
   }
 </script>
+<style>
+  #page{
+    width: 100%;
+  }
+  #page >.biao{
+     display: flex;
+    flex-wrap:wrap;
+    /*justify-content: space-around;*/
+  }
+  #page .biao1{
+    margin-bottom: 30px;
+    margin-right: 30px;
+  }
+</style>
