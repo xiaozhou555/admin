@@ -80,7 +80,7 @@
     flex-wrap:wrap;
     /*justify-content: space-around;*/
   }
-  #page .biao1{
+  #page >.biao>.biao1{
     margin-bottom: 30px;
     margin-right: 30px;
   }
