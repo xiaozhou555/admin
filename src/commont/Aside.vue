@@ -14,23 +14,32 @@
           :collapse="$store.state.asideCode"
           :router=true
         >
-          <el-submenu index="1">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>导航一</span>
+          <template v-for="item in items">
+            <!--有子导航-->
+            <template v-if="item.sub">
+              <el-submenu :index="item.index">
+                <template slot="title">
+                  <i :class="item.icon1"></i>
+                  <span>{{item.title}}</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item v-for="subItem in item.sub" :index="subItem.index">{{subItem.title}}</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
             </template>
-            <el-menu-item-group>
-              <el-menu-item index="page1">选项1</el-menu-item>
-              <el-menu-item index="page1-2">选项2</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
-          <el-menu-item index="page2">
-            <i class="el-icon-menu"></i>
-            <span slot="title">导航二</span>
-          </el-menu-item>
+            <!--无子导航-->
+            <template v-else>
+              <el-menu-item :index="item.index">
+                <i :class="item.icon1"></i>
+                <span slot="title">{{item.title}}</span>
+              </el-menu-item>
+            </template>
+          </template>
+
+
           <!--<el-menu-item index="3">-->
-            <!--<i class="el-icon-setting"></i>-->
-            <!--<span slot="title">导航三</span>-->
+          <!--<i class="el-icon-setting"></i>-->
+          <!--<span slot="title">导航三</span>-->
           <!--</el-menu-item>-->
         </el-menu>
       </el-col>
@@ -42,9 +51,34 @@
   export default{
     data() {
       return {
+        items: [
+          {
+            index: "1",
+            title: "导航1",
+            icon1: 'el-icon-location',
+            sum: 1,
+            sub: [
+              {
+                index: 'page1',
+                title: '选项1'
+              },
+              {
+                index: 'page1-2',
+                title: '选项2'
+              },
+            ]
+          },
+          {
+            index: "page2",
+            title: "导航二",
+            icon1: 'el-icon-menu',
+            sum: 2
+          },
+        ],
         isCollapse: true
       };
     },
+
     methods: {
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
@@ -63,11 +97,12 @@
     overflow-x: hidden;
   }
 
-  .tac{
+  .tac {
     height: 100%;
-
-    background-color: #001529;
+    width: 100%;
+    background: #001529;
   }
+
   /*侧边栏头部*/
   #aside .title {
     height: 60px;
@@ -79,6 +114,7 @@
     line-height: 60px;
     font-size: 24px;
   }
+
   /*侧边栏*/
   .aside {
     max-width: 200px;

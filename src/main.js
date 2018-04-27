@@ -6,6 +6,20 @@ import router from './router'
 import ElementUI from 'element-ui';
 import store from './store/index'
 import 'element-ui/lib/theme-chalk/index.css';
+import echarts from 'echarts'
+import ajaxAPI from './api/index'
+
+Vue.prototype.$ajax = function(fun,datas,success,er){
+  ajaxAPI[fun](datas)
+    .then(function(response){
+      success(response);
+
+    })
+    .catch(function(error){
+      er(error);
+    })
+}
+Vue.prototype.$echarts = echarts
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 
